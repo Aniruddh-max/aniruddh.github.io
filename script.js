@@ -1,22 +1,22 @@
 // GSAP + ScrollTrigger animations
 gsap.registerPlugin(ScrollTrigger);
 
-// Animate headings and paragraphs
+// 1. Reveal animations (headings, paragraphs)
 gsap.utils.toArray(".animate").forEach(el => {
   gsap.from(el, {
     scrollTrigger: {
       trigger: el,
-      start: "top 80%", // jab element viewport me aaye
+      start: "top 80%",
       toggleActions: "play none none reverse"
     },
-    y: 100, // neeche se upar move hoga
+    y: 100,
     opacity: 0,
     duration: 1.2,
     ease: "power3.out"
   });
 });
 
-// Skills list ke liye ek‑ek karke reveal
+// 2. Skills list ek-ek karke reveal
 gsap.from("#about ul li", {
   scrollTrigger: {
     trigger: "#about",
@@ -26,11 +26,11 @@ gsap.from("#about ul li", {
   opacity: 0,
   x: -50,
   duration: 0.8,
-  stagger: 0.3, // ek‑ek karke animate hoga
+  stagger: 0.3,
   ease: "power2.out"
 });
 
-// Portfolio items ke liye zoom effect
+// 3. Portfolio items zoom effect
 gsap.from("#portfolio ul li", {
   scrollTrigger: {
     trigger: "#portfolio",
@@ -43,7 +43,8 @@ gsap.from("#portfolio ul li", {
   stagger: 0.3,
   ease: "back.out(1.7)"
 });
-// Background parallax effect
+
+// 4. Background parallax
 gsap.utils.toArray("section").forEach(section => {
   gsap.to(section, {
     backgroundPositionY: "50%",
@@ -53,7 +54,8 @@ gsap.utils.toArray("section").forEach(section => {
     }
   });
 });
-// Hero heading cinematic zoom
+
+// 5. Hero heading cinematic zoom
 gsap.from("#home h1", {
   scrollTrigger: {
     trigger: "#home",
@@ -66,11 +68,37 @@ gsap.from("#home h1", {
   duration: 2,
   ease: "power2.out"
 });
-// Pin portfolio section
+
+// 6. Pin portfolio section
 ScrollTrigger.create({
   trigger: "#portfolio",
   start: "top top",
   end: "+=500",
   pin: true,
   scrub: true
+});
+
+// 7. Spline embeds animation
+gsap.from(".kingfisher", {
+  scrollTrigger: {
+    trigger: ".kingfisher",
+    start: "top 80%",
+    toggleActions: "play none none reverse"
+  },
+  opacity: 0,
+  scale: 0.7,
+  duration: 1.5,
+  ease: "power3.out"
+});
+
+gsap.from(".fireflies", {
+  scrollTrigger: {
+    trigger: ".fireflies",
+    start: "top 80%",
+    toggleActions: "play none none reverse"
+  },
+  opacity: 0,
+  y: 100,
+  duration: 1.5,
+  ease: "power3.out"
 });
